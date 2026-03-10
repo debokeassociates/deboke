@@ -59,8 +59,11 @@
 
     /* ── TOPBAR / NAV ── */
     .topbar{display:flex;justify-content:space-between;align-items:center;padding:1.8rem 4rem;border-bottom:1px solid rgba(110,104,96,0.2);flex-shrink:0;}
-    .topbar-logo{width:32px;flex-shrink:0;}
+    
+    .topbar-logo{width:32px;flex-shrink:0;cursor:none;transition:opacity 0.3s, transform 0.4s cubic-bezier(0.22,1,0.36,1);}
+    .topbar-logo:hover{opacity:0.7;transform:scale(1.08);}
     .topbar-logo img{width:100%;display:block;}
+
     .topbar-right{display:flex;align-items:center;gap:3rem;}
         
     
@@ -68,7 +71,7 @@
     
     
     nav{display:flex;gap:2.5rem;align-items:center;}
-    nav a{text-decoration:none;font-weight:100;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--silver);transition:color 0.4s;cursor:none;position:relative;}
+    nav a{text-decoration:none;font-weight:200;font-size:0.82rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);transition:color 0.4s;cursor:none;position:relative;}
     nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--ember);transition:width 0.4s cubic-bezier(0.22,1,0.36,1);}
     nav a:hover,nav a.active{color:var(--silver);}
     nav a:hover::after,nav a.active::after{width:100%;}
@@ -195,9 +198,9 @@
     .project-card-name{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:clamp(0.95rem,1.4vw,1.25rem);letter-spacing:0.1em;color:var(--white);}
     .project-card-year{font-family:'Barlow Condensed',sans-serif;font-weight:100;font-size:0.75rem;letter-spacing:0.15em;color:var(--ember);opacity:0.8;}
     .project-card-meta{display:flex;gap:1.2rem;margin-bottom:0.7rem;}
-    .project-card-type{font-weight:100;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);}
-    .project-card-loc{font-weight:100;font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ash);}
-    .project-card-desc{font-weight:100;font-size:0.6rem;line-height:1.9;letter-spacing:0.04em;color:var(--silver);opacity:0.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .project-card-type{font-weight:100;font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);}
+    .project-card-loc{font-weight:100;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ash);}
+    .project-card-desc{font-weight:100;font-size:0.78rem;line-height:1.9;letter-spacing:0.04em;color:var(--silver);opacity:0.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
     .project-card-bar{position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ember);transition:width 0.5s cubic-bezier(0.22,1,0.36,1);}
     .project-card:hover .project-card-bar{width:100%;}
 
@@ -619,11 +622,12 @@
     <div class="v-divider"></div>
     <div class="enq-right">
       <p class="enq-form-title">Send an enquiry</p>
-      <div class="field-group"><label>Your name</label><input type="text" placeholder="Full name"/></div>
-      <div class="field-group"><label>Email address</label><input type="email" placeholder="you@email.com"/></div>
-      <div class="field-group"><label>Service</label><select><option value="" disabled selected>Select a service</option><option>Residential Architecture</option><option>Commercial Architecture</option><option>Interior Design</option><option>Spatial Consultancy</option></select></div>
-      <div class="field-group"><label>Project brief</label><textarea rows="3" placeholder="Tell us about your project..."></textarea></div>
-      <button class="submit-btn"><span class="submit-btn-text">Send enquiry</span><div class="submit-btn-line"></div></button>
+      <div class="field-group"><label for="enq-name">Your name</label><input id="enq-name" type="text" placeholder="Full name"/></div>
+      <div class="field-group"><label for="enq-email">Email address</label><input id="enq-email" type="email" placeholder="you@email.com"/></div>
+      <div class="field-group"><label for="enq-service">Service</label><select id="enq-service"><option value="" disabled selected>Select a service</option><option>Residential Architecture</option><option>Commercial Architecture</option><option>Interior Design</option><option>Spatial Consultancy</option></select></div>
+      <div class="field-group"><label for="enq-brief">Project brief</label><textarea id="enq-brief" rows="3" placeholder="Tell us about your project..."></textarea></div>
+      <div id="enq-msg" style="font-weight:200;font-size:0.72rem;letter-spacing:0.08em;color:var(--ember);min-height:1rem;display:none;">Please fill in all fields before sending.</div>
+      <button class="submit-btn" id="enq-submit"><span class="submit-btn-text">Send enquiry</span><div class="submit-btn-line"></div></button>
     </div>
   </div>
 </div>
@@ -1100,6 +1104,47 @@ draw();
   }
   updateClocks();
   setInterval(updateClocks,1000);
+
+
+  // ══ ENQUIRY SUBMIT ══
+  document.getElementById('enq-submit').addEventListener('click', function() {
+    const name    = document.getElementById('enq-name').value.trim();
+    const email   = document.getElementById('enq-email').value.trim();
+    const service = document.getElementById('enq-service').value;
+    const brief   = document.getElementById('enq-brief').value.trim();
+    const msg     = document.getElementById('enq-msg');
+
+    if (!name || !email || !service || !brief) {
+      msg.style.display = 'block';
+      msg.textContent = 'Please fill in all fields before sending.';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      return;
+    }
+
+    const subject = encodeURIComponent('Enquiry from ' + name + ' — ' + service);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Service: ' + service + '\n\n' +
+      'Project Brief:\n' + brief + '\n\n' +
+      '---\nSent via deboke.com.au'
+    );
+
+    window.location.href = 'mailto:info@deboke.com.au?subject=' + subject + '&body=' + body;
+
+    // Show success message
+    msg.style.display = 'block';
+    msg.style.color = 'var(--silver)';
+    msg.textContent = 'Opening your email client...';
+    setTimeout(() => {
+      msg.style.display = 'none';
+      // Clear fields
+      document.getElementById('enq-name').value = '';
+      document.getElementById('enq-email').value = '';
+      document.getElementById('enq-service').selectedIndex = 0;
+      document.getElementById('enq-brief').value = '';
+    }, 2500);
+  });
 
 </script>
 
