@@ -105,13 +105,13 @@
     .subtitle .cursor-blink{display:inline-block;width:1px;height:0.8em;background:var(--ember);margin-left:0.15em;vertical-align:middle;animation:blink 0.9s step-end infinite;}
     @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
     .enter-prompt{margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:0.8rem;opacity:0;animation:fadeUp 1s ease 3.6s forwards;cursor:none;}
-    .enter-prompt span{font-weight:100;font-size:0.48rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--ash);transition:color 0.4s;}
-    .enter-prompt:hover span{color:var(--silver);}
+    .enter-prompt span{font-weight:200;font-size:0.82rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--silver);transition:color 0.4s;}
+    .enter-prompt:hover span{color:var(--white);}
     .enter-arrow{width:1px;height:0;background:linear-gradient(to bottom,var(--ember),transparent);animation:arrowDrop 0.8s ease 4.4s forwards;}
     @keyframes arrowDrop{to{height:32px;}}
     .arrow-tip{width:6px;height:6px;border-right:1px solid var(--ember);border-bottom:1px solid var(--ember);transform:rotate(45deg) translateX(-3px);opacity:0;animation:fadeIn 0.6s ease 5.2s forwards,bounce 2s ease-in-out 5.4s infinite;}
     @keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0);}50%{transform:rotate(45deg) translateY(4px);}}
-    #s-intro .bottombar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.8rem 4rem;border-top:1px solid rgba(110,104,96,0.2);opacity:0;animation:fadeIn 1s ease 3s forwards;flex-shrink:0;}
+    #s-intro .bottombar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.8rem 4rem;border-top:1px solid rgba(110,104,96,0.2);opacity:0;animation:fadeIn 1s ease 3s forwards;flex-shrink:0;margin-bottom:44px;}
     .bottom-left{display:flex;align-items:center;gap:0.8rem;}
     .pulse-dot{width:5px;height:5px;border-radius:50%;background:var(--ember);box-shadow:0 0 8px rgba(201,127,62,0.6);animation:pulseDot 2.8s ease-in-out infinite;}
     @keyframes pulseDot{0%,100%{box-shadow:0 0 6px rgba(201,127,62,0.7);opacity:1;transform:scale(1);}50%{box-shadow:0 0 16px rgba(201,127,62,0);opacity:0.4;transform:scale(0.6);}}
