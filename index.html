@@ -132,9 +132,8 @@
     .about-body{font-weight:200;font-size:0.88rem;letter-spacing:0.03em;line-height:1.9;color:var(--white);max-width:46ch;}
     .about-stats{display:flex;gap:3rem;}
     .stat{display:flex;flex-direction:column;gap:0.3rem;}
-    .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:2.6rem;letter-spacing:0.05em;color:var(--white);line-height:1;}
-    .stat-num sup{font-size:1.1rem;color:var(--ember);}
-    .stat-label{font-weight:100;font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--silver);}
+    .stat-word{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:1.8rem;letter-spacing:0.12em;color:var(--white);line-height:1.1;font-style:italic;}
+    .stat-label{font-weight:100;font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--ash);margin-top:0.35rem;}
     .v-divider{background:rgba(110,104,96,0.2);}
     .about-right{padding:3.5rem 4.5rem 3.5rem 4rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
     .about-values{}
@@ -200,7 +199,7 @@
     .project-card-meta{display:flex;gap:1.2rem;margin-bottom:0.7rem;}
     .project-card-type{font-weight:100;font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);}
     .project-card-loc{font-weight:100;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ash);}
-    .project-card-desc{font-weight:100;font-size:0.78rem;line-height:1.9;letter-spacing:0.04em;color:var(--silver);opacity:0.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .project-card-desc-OLD{display:none;}
     .project-card-bar{position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ember);transition:width 0.5s cubic-bezier(0.22,1,0.36,1);}
     .project-card:hover .project-card-bar{width:100%;}
 
@@ -304,6 +303,94 @@
       .project-type,.project-year{display:none;}
       #proj-preview{display:none;}
     }
+  
+    /* ── FOOTER ── */
+    .site-footer{position:fixed;bottom:0;left:0;right:0;z-index:300;padding:0.9rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(110,104,96,0.12);background:var(--bg);pointer-events:none;}
+    .footer-copy{font-weight:100;font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ash);}
+    .footer-social{display:flex;gap:2rem;pointer-events:all;}
+    .footer-social a{font-weight:100;font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color 0.35s;cursor:none;}
+    .footer-social a:hover{color:var(--ember);}
+    .footer-privacy{font-weight:100;font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ash);cursor:none;pointer-events:all;transition:color 0.35s;}
+    .footer-privacy:hover{color:var(--silver);}
+
+    /* ── THANK YOU OVERLAY ── */
+    #thankyou-overlay{
+      position:fixed;inset:0;z-index:900;
+      background:var(--bg);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+      opacity:0;pointer-events:none;
+      transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    #thankyou-overlay.visible{opacity:1;pointer-events:all;}
+    .ty-icon{width:56px;height:56px;border:1px solid var(--ember);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+    .ty-icon svg{width:24px;height:24px;stroke:var(--ember);fill:none;stroke-width:1.5;}
+    .ty-heading{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.1em;color:var(--white);text-align:center;}
+    .ty-sub{font-weight:100;font-size:0.72rem;letter-spacing:0.18em;color:var(--silver);text-align:center;line-height:2;}
+    .ty-close{margin-top:1rem;font-weight:100;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);cursor:none;border:none;background:none;transition:color 0.35s;}
+    .ty-close:hover{color:var(--ember);}
+
+    /* ── PRIVACY MODAL ── */
+    #privacy-modal{
+      position:fixed;inset:0;z-index:800;
+      background:rgba(8,7,5,0.92);
+      display:flex;align-items:center;justify-content:center;
+      opacity:0;pointer-events:none;
+      transition:opacity 0.4s;
+    }
+    #privacy-modal.visible{opacity:1;pointer-events:all;}
+    .privacy-box{
+      background:var(--mid);border:1px solid rgba(110,104,96,0.2);
+      padding:3rem 3.5rem;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;
+      position:relative;
+    }
+    .privacy-title{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:2rem;letter-spacing:0.1em;color:var(--white);margin-bottom:1.5rem;}
+    .privacy-body{font-weight:100;font-size:0.72rem;line-height:2;letter-spacing:0.04em;color:var(--silver);}
+    .privacy-body p{margin-bottom:1rem;}
+    .privacy-body strong{color:var(--white);font-weight:300;}
+    .privacy-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--ash);font-size:1.2rem;cursor:none;transition:color 0.3s;}
+    .privacy-close:hover{color:var(--ember);}
+
+    /* ── COOKIE NOTICE ── */
+    #cookie-notice{
+      position:fixed;bottom:3.5rem;left:50%;transform:translateX(-50%);
+      z-index:700;background:var(--fog);border:1px solid rgba(110,104,96,0.2);
+      padding:1rem 2rem;display:flex;align-items:center;gap:2rem;
+      opacity:0;pointer-events:none;transition:opacity 0.5s;
+      white-space:nowrap;
+    }
+    #cookie-notice.visible{opacity:1;pointer-events:all;}
+    .cookie-text{font-weight:100;font-size:0.58rem;letter-spacing:0.12em;color:var(--silver);}
+    .cookie-text a{color:var(--ember);cursor:none;text-decoration:none;}
+    .cookie-accept{font-weight:200;font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);background:none;border:1px solid rgba(201,127,62,0.4);padding:0.4rem 1.2rem;cursor:none;transition:all 0.3s;}
+    .cookie-accept:hover{background:var(--ember);color:var(--bg);border-color:var(--ember);}
+
+    /* ── PROJECT CARD HOVER EXPAND ── */
+    .project-card-desc{font-weight:100;font-size:0.78rem;line-height:1.9;letter-spacing:0.04em;color:var(--silver);opacity:0.75;max-height:4.5rem;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s;}
+    .project-card:hover .project-card-desc{max-height:10rem;opacity:1;}
+
+    /* ── MAPS SECTION ── */
+    .enq-map{margin-top:1.5rem;width:100%;height:160px;overflow:hidden;border:1px solid rgba(110,104,96,0.15);filter:grayscale(1) brightness(0.6) contrast(1.1);transition:filter 0.4s;}
+    .enq-map:hover{filter:grayscale(0.4) brightness(0.75) contrast(1.05);}
+    .enq-map iframe{width:100%;height:100%;border:0;display:block;}
+
+    /* ── SOCIAL ON CONTACT ── */
+    .enq-social{display:flex;gap:1.8rem;margin-top:0.5rem;}
+    .enq-social a{font-weight:100;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color 0.35s;cursor:none;}
+    .enq-social a:hover{color:var(--ember);}
+
+    /* ── PROJECT LOADING SHIMMER ── */
+    @keyframes shimmer{0%{background-position:-800px 0}100%{background-position:800px 0}}
+    .project-card-img.loading img{opacity:0;}
+    .project-card-img.loading::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(90deg,var(--mid) 25%,rgba(110,104,96,0.15) 50%,var(--mid) 75%);
+      background-size:800px 100%;
+      animation:shimmer 1.6s infinite linear;
+    }
+    .project-card-img{position:relative;}
+    .project-card-img img{transition:opacity 0.5s;}
+    .project-card-img img.loaded{opacity:1;}
+
   </style>
 </head>
 <body>
@@ -389,9 +476,18 @@
       </div>
       <p class="about-body">Deboke Associates is a boutique architectural studio based in Sydney. We work with clients who believe in the transformative power of considered design — spaces built to endure, to inspire, and to belong.</p>
       <div class="about-stats">
-        <div class="stat"><div class="stat-num" data-target="12" data-suffix="+">0</div><div class="stat-label">Years practice</div></div>
-        <div class="stat"><div class="stat-num" data-target="84" data-suffix="+">0</div><div class="stat-label">Projects completed</div></div>
-        <div class="stat"><div class="stat-num" data-target="6" data-suffix="">0</div><div class="stat-label">Awards</div></div>
+        <div class="stat">
+          <div class="stat-word">Considered</div>
+          <div class="stat-label">Design approach</div>
+        </div>
+        <div class="stat">
+          <div class="stat-word">Selective</div>
+          <div class="stat-label">Studio practice</div>
+        </div>
+        <div class="stat">
+          <div class="stat-word">Enduring</div>
+          <div class="stat-label">Built outcomes</div>
+        </div>
       </div>
     </div>
     <div class="v-divider"></div>
@@ -618,6 +714,16 @@
         <div><p class="enq-detail-label">Phone</p><p class="enq-detail-val"><a href="tel:+61291884818">+61 (02) 9188 4818</a></p></div>
         <div><p class="enq-detail-label">Address</p><p class="enq-detail-val">17 William Street<br/>Ryde NSW 2112</p></div>
         <div><p class="enq-detail-label">Status</p><p class="enq-detail-val">Accepting commissions</p></div>
+        <div>
+          <p class="enq-detail-label">Follow</p>
+          <div class="enq-social">
+            <a href="https://www.instagram.com/deboke.associates" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/deboke-associates" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="enq-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.7!2d151.1005!3d-33.8168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a3b0f8c0a1c1%3A0x1234567890abcdef!2s17%20William%20St%2C%20Ryde%20NSW%202112!5e0!3m2!1sen!2sau!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     <div class="v-divider"></div>
@@ -1133,22 +1239,105 @@ draw();
 
     window.location.href = 'mailto:info@deboke.com.au?subject=' + subject + '&body=' + body;
 
-    // Show success message
-    msg.style.display = 'block';
-    msg.style.color = 'var(--silver)';
-    msg.textContent = 'Opening your email client...';
+    // Show thank you overlay
     setTimeout(() => {
-      msg.style.display = 'none';
-      // Clear fields
+      document.getElementById('thankyou-overlay').classList.add('visible');
       document.getElementById('enq-name').value = '';
       document.getElementById('enq-email').value = '';
       document.getElementById('enq-service').selectedIndex = 0;
       document.getElementById('enq-brief').value = '';
-    }, 2500);
+    }, 600);
+  });
+
+  // Thank you close
+  document.getElementById('ty-close').addEventListener('click', () => {
+    document.getElementById('thankyou-overlay').classList.remove('visible');
+  });
+
+
+  // ══ PROJECT IMAGE SHIMMER LOADING ══
+  document.querySelectorAll('.project-card-img').forEach(wrapper => {
+    const img = wrapper.querySelector('img');
+    if (!img) return;
+    wrapper.classList.add('loading');
+    const onLoad = () => {
+      wrapper.classList.remove('loading');
+      img.classList.add('loaded');
+    };
+    if (img.complete && img.naturalWidth > 0) { onLoad(); }
+    else { img.addEventListener('load', onLoad); img.addEventListener('error', () => wrapper.classList.remove('loading')); }
+  });
+
+  // ══ PRIVACY MODAL ══
+  document.getElementById('open-privacy').addEventListener('click', () => {
+    document.getElementById('privacy-modal').classList.add('visible');
+  });
+  document.getElementById('privacy-close').addEventListener('click', () => {
+    document.getElementById('privacy-modal').classList.remove('visible');
+  });
+  document.getElementById('privacy-modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('privacy-modal'))
+      document.getElementById('privacy-modal').classList.remove('visible');
+  });
+  document.getElementById('cookie-privacy-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('privacy-modal').classList.add('visible');
+  });
+
+  // ══ COOKIE NOTICE ══
+  if (!localStorage.getItem('deboke_cookie_ok')) {
+    setTimeout(() => document.getElementById('cookie-notice').classList.add('visible'), 2000);
+  }
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('deboke_cookie_ok', '1');
+    document.getElementById('cookie-notice').classList.remove('visible');
   });
 
 </script>
 
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <span class="footer-copy">&copy; 2025 Deboke Associates · ABN 00 000 000 000</span>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/deboke.associates" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/company/deboke-associates" target="_blank">LinkedIn</a>
+  </div>
+  <span class="footer-privacy" id="open-privacy">Privacy Policy</span>
+</footer>
+
+<!-- ══ THANK YOU OVERLAY ══ -->
+<div id="thankyou-overlay">
+  <div class="ty-icon">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h2 class="ty-heading">Thank you.</h2>
+  <p class="ty-sub">Your enquiry has been received.<br/>We'll be in touch within 2 business days.</p>
+  <button class="ty-close" id="ty-close">Return to site</button>
+</div>
+
+<!-- ══ PRIVACY MODAL ══ -->
+<div id="privacy-modal">
+  <div class="privacy-box">
+    <button class="privacy-close" id="privacy-close">&times;</button>
+    <h2 class="privacy-title">Privacy Policy</h2>
+    <div class="privacy-body">
+      <p><strong>Deboke Associates</strong> is committed to protecting your privacy in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles.</p>
+      <p><strong>Information we collect</strong><br/>We collect personal information you provide when submitting an enquiry, including your name, email address and project details. We do not collect information without your knowledge.</p>
+      <p><strong>How we use your information</strong><br/>Your information is used solely to respond to your enquiry and communicate with you about potential projects. We do not sell, rent or share your personal information with third parties.</p>
+      <p><strong>Data storage</strong><br/>Enquiries submitted via this website are sent directly to our studio inbox and are not stored on this website or any third-party server.</p>
+      <p><strong>Cookies</strong><br/>This website uses minimal session data to maintain your browsing experience. No tracking cookies or advertising identifiers are used.</p>
+      <p><strong>Contact</strong><br/>For any privacy-related queries, contact us at <a href="mailto:info@deboke.com.au" style="color:var(--ember)">info@deboke.com.au</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE NOTICE ══ -->
+<div id="cookie-notice">
+  <span class="cookie-text">This site uses minimal cookies to ensure the best experience. <a href="#" id="cookie-privacy-link">Privacy Policy</a></span>
+  <button class="cookie-accept" id="cookie-accept">Accept</button>
+</div>
 
 </body>
 </html>
