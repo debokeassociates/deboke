@@ -47,18 +47,9 @@
     #transition-overlay{
       position:fixed;inset:0;z-index:500;
       background:var(--bg);
-      clip-path:inset(100% 0 0 0);
       pointer-events:none;
+      opacity:0;
     }
-    #transition-overlay.sweep-in{
-      animation:sweepIn 0.55s cubic-bezier(0.76,0,0.24,1) forwards;
-    }
-    #transition-overlay.sweep-out{
-      animation:sweepOut 0.55s cubic-bezier(0.76,0,0.24,1) forwards;
-    }
-    @keyframes sweepIn{from{clip-path:inset(100% 0 0 0);}to{clip-path:inset(0% 0 0 0);}}
-    @keyframes sweepOut{from{clip-path:inset(0% 0 0 0);}to{clip-path:inset(0% 0 100% 0);}}
-
     /* ── LOADER ── */
     #loader{
       position:fixed;inset:0;z-index:800;background:var(--bg);
@@ -73,7 +64,7 @@
     @keyframes fadeOut{to{opacity:0;pointer-events:none;}}
 
     /* ── SCREENS ── */
-    .screen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 0.15s;}
+    .screen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
     .screen.active{opacity:1;pointer-events:all;}
 
     /* ── TOPBAR / NAV ── */
@@ -635,7 +626,7 @@
 <div class="vignette"></div>
 <div class="gloss"></div>
 <div class="grain"></div>
-<div id="transition-overlay"></div>
+<div id="transition-overlay"><canvas id="transition-canvas"></canvas></div>
 </div>
 
 <!-- ══ LOADER ══ -->
@@ -1155,19 +1146,17 @@ document.querySelectorAll('.mag-btn, nav a, .enter-prompt, .submit-btn').forEach
 // ══ SCREEN TRANSITIONS ══
 function goTo(id) {
   const overlay = document.getElementById('transition-overlay');
-  overlay.className = 'sweep-in';
-  overlay.addEventListener('animationend', function onIn() {
-    overlay.removeEventListener('animationend', onIn);
+  overlay.style.transition = 'opacity 0.35s ease';
+  overlay.style.opacity = '1';
+  overlay.style.pointerEvents = 'all';
+  setTimeout(() => {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const next = document.getElementById(id);
     if (next) next.classList.add('active');
     if (id === 's-about') setTimeout(animateStats, 100);
-    overlay.className = 'sweep-out';
-    overlay.addEventListener('animationend', function onOut() {
-      overlay.removeEventListener('animationend', onOut);
-      overlay.className = '';
-    });
-  });
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+  }, 350);
 }
 
 document.querySelectorAll('[data-screen]').forEach(el => {
