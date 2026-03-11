@@ -160,6 +160,7 @@
 
     /* ── PROCESS ── */
     #s-process .body{flex:1;display:flex;flex-direction:column;padding:3rem 4rem 2rem;overflow:hidden;}
+    #s-services .body{flex:1;display:flex!important;flex-direction:column;padding:3rem 4rem 2rem;overflow-y:auto;gap:0;grid-template-columns:unset;}
     /* ── PROCESS ── */
     .process-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-shrink:0;}
     .process-heading{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:clamp(2rem,3.8vw,3.8rem);letter-spacing:0.08em;color:var(--white);}
@@ -185,8 +186,8 @@
     .process-row:hover .process-bar{filter:brightness(1.3);}
 
     .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-shrink:0;}
-    .services-heading{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:clamp(2rem,3.8vw,3.8rem);letter-spacing:0.08em;color:var(--white);}
-    .services-sub{font-weight:100;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);text-align:right;line-height:2;max-width:28ch;}
+    .services-heading{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:clamp(2rem,3.8vw,3.8rem);letter-spacing:0.08em;color:var(--white);line-height:1;}
+    .services-sub{font-weight:100;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--silver);text-align:right;line-height:2;}
     .service-card{background:var(--bg);padding:2.2rem;position:relative;overflow-y:auto;overflow-x:hidden;transition:background 0.4s;cursor:none;}
     .service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,127,62,0.05),transparent);opacity:0;transition:opacity 0.4s;}
     .service-card:hover{background:rgba(18,15,11,0.95);}
@@ -394,7 +395,7 @@
       .process-track{left:2.5rem;}
 
       /* Services */
-      #s-services .body{display:flex!important;flex-direction:column;padding:1.5rem 1.4rem 2rem;overflow-y:auto;gap:0;grid-template-columns:unset;}
+      #s-services .body{display:flex!important;flex-direction:column;padding:3rem 4rem 2rem;overflow-y:auto;gap:0;grid-template-columns:unset;}
       .services-header{flex-direction:column;gap:0.5rem;align-items:flex-start;margin-bottom:1.5rem;}
       .services-sub{text-align:left;}
       .services-grid{grid-template-columns:1fr;gap:1px;}
