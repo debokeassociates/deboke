@@ -460,8 +460,8 @@
     .ty-icon svg{width:24px;height:24px;stroke:var(--ember);fill:none;stroke-width:1.5;}
     .ty-heading{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.1em;color:var(--white);text-align:center;}
     .ty-sub{font-weight:100;font-size:0.72rem;letter-spacing:0.18em;color:var(--silver);text-align:center;line-height:2;}
-    .ty-close{margin-top:1.5rem;font-weight:100;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);cursor:pointer;border:1px solid rgba(212,137,74,0.25);background:none;padding:0.75rem 2rem;transition:color 0.35s,border-color 0.35s,background 0.35s;}
-    .ty-close:hover{color:var(--ember);border-color:var(--ember);background:rgba(212,137,74,0.06);}
+    .ty-close{position:relative;z-index:10;margin-top:1.5rem;font-weight:100;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);cursor:pointer;border:1px solid rgba(212,137,74,0.25);background:none;padding:1rem 2.5rem;transition:color 0.35s,border-color 0.35s,background 0.35s;-webkit-tap-highlight-color:rgba(212,137,74,0.15);touch-action:manipulation;}
+    .ty-close:hover,.ty-close:active{color:var(--ember);border-color:var(--ember);background:rgba(212,137,74,0.06);}
 
     /* ── PRIVACY MODAL ── */
     #privacy-modal{
@@ -549,8 +549,8 @@
     .ty-icon svg{width:24px;height:24px;stroke:var(--ember);fill:none;stroke-width:1.5;}
     .ty-heading{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.1em;color:var(--white);text-align:center;}
     .ty-sub{font-weight:100;font-size:0.72rem;letter-spacing:0.18em;color:var(--silver);text-align:center;line-height:2;}
-    .ty-close{margin-top:1.5rem;font-weight:100;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);cursor:pointer;border:1px solid rgba(212,137,74,0.25);background:none;padding:0.75rem 2rem;transition:color 0.35s,border-color 0.35s,background 0.35s;}
-    .ty-close:hover{color:var(--ember);border-color:var(--ember);background:rgba(212,137,74,0.06);}
+    .ty-close{position:relative;z-index:10;margin-top:1.5rem;font-weight:100;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);cursor:pointer;border:1px solid rgba(212,137,74,0.25);background:none;padding:1rem 2.5rem;transition:color 0.35s,border-color 0.35s,background 0.35s;-webkit-tap-highlight-color:rgba(212,137,74,0.15);touch-action:manipulation;}
+    .ty-close:hover,.ty-close:active{color:var(--ember);border-color:var(--ember);background:rgba(212,137,74,0.06);}
 
     /* ── PRIVACY MODAL ── */
     #privacy-modal{
@@ -1669,13 +1669,17 @@ draw();
   });
 
   // Thank you close — return to home
-  document.getElementById('ty-close').addEventListener('click', () => {
-    document.getElementById('thankyou-overlay').classList.remove('visible');
+  function returnToHome() {
+    const overlay = document.getElementById('thankyou-overlay');
+    overlay.classList.remove('visible');
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const intro = document.getElementById('s-intro');
     if (intro) intro.classList.add('active');
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  });
+  }
+  const tyBtn = document.getElementById('ty-close');
+  tyBtn.addEventListener('click', returnToHome);
+  tyBtn.addEventListener('touchend', function(e) { e.preventDefault(); returnToHome(); });
 
 
   // ══ PROJECT IMAGE SHIMMER LOADING ══
