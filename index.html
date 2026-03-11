@@ -1587,40 +1587,85 @@ draw();
 
 
   // ══ ENQUIRY SUBMIT ══
-  document.getElementById('enq-submit').addEventListener('click', function() {
+  document.getElementById('enq-submit').addEventListener('click', async function() {
     const name    = document.getElementById('enq-name').value.trim();
     const email   = document.getElementById('enq-email').value.trim();
     const service = document.getElementById('enq-service').value;
     const brief   = document.getElementById('enq-brief').value.trim();
     const msg     = document.getElementById('enq-msg');
+    const btn     = document.getElementById('enq-submit');
+    const btnText = btn.querySelector('.submit-btn-text');
 
+    // Validation
     if (!name || !email || !service || !brief) {
       msg.style.display = 'block';
+      msg.style.color = 'var(--ember)';
       msg.textContent = 'Please fill in all fields before sending.';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);
       return;
     }
 
-    const subject = encodeURIComponent('Enquiry from ' + name + ' — ' + service);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Service: ' + service + '\n\n' +
-      'Project Brief:\n' + brief + '\n\n' +
-      '---\nSent via deboke.com.au'
-    );
+    // Email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.style.display = 'block';
+      msg.style.color = 'var(--ember)';
+      msg.textContent = 'Please enter a valid email address.';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      return;
+    }
 
-    var _em=[105,110,102,111,64,100,101,98,111,107,101,46,99,111,109,46,97,117].map(function(n){return String.fromCharCode(n);}).join('');
-    window.location.href = 'mailto:' + _em + '?subject=' + subject + '&body=' + body;
+    // Sending state
+    btnText.textContent = 'Sending…';
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.6';
 
-    // Show thank you overlay
-    setTimeout(() => {
-      document.getElementById('thankyou-overlay').classList.add('visible');
-      document.getElementById('enq-name').value = '';
-      document.getElementById('enq-email').value = '';
-      document.getElementById('enq-service').selectedIndex = 0;
-      document.getElementById('enq-brief').value = '';
-    }, 600);
+    // ── FORMSPREE ──────────────────────────────────────────
+    // Replace YOUR_FORM_ID below with your Formspree form ID
+    // e.g. if your endpoint is https://formspree.io/f/xpwzgkqr → use xpwzgkqr
+    const FORMSPREE_ID = 'mvzwazvr';
+    // ──────────────────────────────────────────────────────
+
+    try {
+      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    name,
+          email:   email,
+          service: service,
+          message: brief,
+          _subject: 'Enquiry — ' + service + ' — ' + name
+        })
+      });
+
+      if (res.ok) {
+        // Success — clear fields and show thank-you overlay
+        document.getElementById('enq-name').value = '';
+        document.getElementById('enq-email').value = '';
+        document.getElementById('enq-service').selectedIndex = 0;
+        document.getElementById('enq-brief').value = '';
+        document.getElementById('thankyou-overlay').classList.add('visible');
+      } else {
+        const data = await res.json();
+        const errMsg = (data && data.errors && data.errors[0] && data.errors[0].message)
+          ? data.errors[0].message
+          : 'Something went wrong. Please try again or email us directly.';
+        msg.style.display = 'block';
+        msg.style.color = 'var(--ember)';
+        msg.textContent = errMsg;
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+      }
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.style.color = 'var(--ember)';
+      msg.textContent = 'Unable to send. Please email info@deboke.com.au directly.';
+      setTimeout(() => { msg.style.display = 'none'; }, 5000);
+    }
+
+    // Restore button
+    btnText.textContent = 'Send enquiry';
+    btn.style.pointerEvents = '';
+    btn.style.opacity = '';
   });
 
   // Thank you close
