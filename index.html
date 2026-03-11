@@ -989,7 +989,7 @@
     <div class="enq-left">
       <div class="enq-tagline">Let's build<br/>something<br/>remarkable.</div>
       <div class="enq-details">
-        <div><p class="enq-detail-label">Email</p><p class="enq-detail-val"><a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbfffef9f4f0feb5f8f4f6b5faee"><span class="__cf_email__" data-cfemail="f59c9b939ab59190979a9e90db969a98db9480">[email&#160;protected]</span></a></p></div>
+        <div><p class="enq-detail-label">Email</p><p class="enq-detail-val"><a href="#" id="contact-email-link" onclick="revealEmail(this);return false;" style="border-bottom:1px solid rgba(201,127,62,0.3);">show email</a></p></div>
         <div><p class="enq-detail-label">Phone</p><p class="enq-detail-val"><a href="tel:+61291884818">+61 (02) 9188 4818</a></p></div>
         <div><p class="enq-detail-label">Address</p><p class="enq-detail-val">17 William Street<br/>Ryde NSW 2112</p></div>
         <div><p class="enq-detail-label">Status</p><p class="enq-detail-val">Accepting commissions</p></div>
@@ -1551,7 +1551,8 @@ draw();
       '---\nSent via deboke.com.au'
     );
 
-    window.location.href = 'mailto:info@deboke.com.au?subject=' + subject + '&body=' + body;
+    const _em = [105,110,102,111,64,100,101,98,111,107,101,46,99,111,109,46,97,117].map(n=>String.fromCharCode(n)).join('');
+    window.location.href = 'mailto:' + _em + '?subject=' + subject + '&body=' + body;
 
     // Show thank you overlay
     setTimeout(() => {
