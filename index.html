@@ -58,7 +58,7 @@
   </sc-if>
 </header>
 <section id="cover" data-screen-label="Hero" ref="{{ heroRef }}" style="height:230vh;position:relative">
-  <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+  <div style="position:sticky;top:0;height:100svh;overflow:hidden">
     <div style="position:absolute;left:clamp(20px,3vw,44px);right:clamp(20px,3vw,44px);top:{{ htTop }};bottom:{{ htBot }};z-index:2;display:flex;flex-direction:column;gap:22px;opacity:{{ heroTxtOp }};transform:{{ heroTxtT }};pointer-events:{{ heroPE }}">
       <h1 style="margin:0;text-shadow:0 2px 30px rgba(0,0,0,0.25);font:200 clamp(38px,5.4vw,92px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-0.03em;max-width:12ch">Architecture, interiors &amp; planning.</h1>
       <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA;text-shadow:0 1px 14px rgba(0,0,0,0.45)">Ryde — Sydney — NSW</span>
@@ -71,7 +71,7 @@
   </div>
 </section>
 <section id="practice" data-scrub="pin" data-screen-label="Practice" style="overflow-x:clip;height:280vh;position:relative">
-  <div style="overflow:hidden;position:sticky;top:0;height:100vh;display:grid;grid-template-columns:{{ pracCols }};gap:clamp(32px,5vw,96px);align-items:center;padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px)">
+  <div style="overflow:hidden;position:sticky;top:0;height:100svh;display:grid;grid-template-columns:{{ pracCols }};gap:clamp(32px,5vw,96px);align-items:center;padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px)">
     <div style="max-width:1180px;display:flex;flex-direction:column;gap:28px">
       <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;">Practice</span>
       <p style="margin:0;font:200 clamp(22px,min(3vw,4.6vh),52px)/1.22 'Hanken Grotesk',sans-serif;letter-spacing:-0.02em"><sc-for list="{{ words }}" as="w" hint-placeholder-count="20"><span style="opacity:{{ w.op }};display:{{ w.d }};height:{{ w.h }}">{{ w.t }}</span></sc-for></p>
@@ -110,7 +110,7 @@
   </div>
 </section>
 <section data-scrub="pin" data-screen-label="In motion" style="height:520vh;position:relative">
-  <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:#0C0C0B">
+  <div style="position:sticky;top:0;height:100svh;overflow:hidden;background:#0C0C0B">
     <div style="position:absolute;inset:0;clip-path:none;will-change:clip-path"><video src="media/v02.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(calc(1.04 - clamp(0, calc((var(--p,0) * 5) - 0 + 0.35), 1) * 0.04))"></video></div>
     <div style="position:absolute;inset:0;clip-path:inset(calc((1 - clamp(0, calc(((var(--p,0) * 5) - 1 + 0.35) * 2.2), 1)) * 100%) 0 0 0);will-change:clip-path"><video src="media/v03.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(calc(1.04 - clamp(0, calc((var(--p,0) * 5) - 1 + 0.35), 1) * 0.04))"></video></div>
     <div style="position:absolute;inset:0;clip-path:inset(calc((1 - clamp(0, calc(((var(--p,0) * 5) - 2 + 0.35) * 2.2), 1)) * 100%) 0 0 0);will-change:clip-path"><video src="media/v04.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(calc(1.04 - clamp(0, calc((var(--p,0) * 5) - 2 + 0.35), 1) * 0.04))"></video></div>
@@ -132,15 +132,19 @@
     </div>
   </div>
 </section>
-<section id="work" data-screen-label="Index" style="position:relative;min-height:100vh;overflow:hidden;padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px);padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)">
+<section id="work" data-screen-label="Index" style="position:relative;min-height:100svh;overflow:hidden;padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px);padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)">
   <div style="position:absolute;inset:0;pointer-events:none;background:#0C0C0B"><video src="media/v07.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:{{ v0 }};transition:opacity 0.6s ease"></video><video src="media/v08.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:{{ v1 }};transition:opacity 0.6s ease"></video><video src="media/v09.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;opacity:{{ v2 }};transition:opacity 0.6s ease"></video></div>
   <div style="position:absolute;inset:0;background:rgba(12,12,11,0.35);opacity:{{ bgOp }};transition:opacity 0.6s;pointer-events:none"></div>
-  <div style="position:relative;display:flex;justify-content:space-between;padding-bottom:28px"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;color:#CFC9C0">Selected work</span><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;color:#CFC9C0">{{ viewHint }}</span></div>
+  <div style="position:relative;display:flex;justify-content:space-between;padding-bottom:28px"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;color:#CFC9C0">Selected work</span><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;color:#CFC9C0">Choose a sector to view its projects</span></div>
   <div style="position:relative;display:flex;flex-direction:column">
-    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-      <a href="#enquire" onClick="{{ p.tap }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" style="display:grid;grid-template-columns:{{ bigIdxCols }};gap:18px;align-items:baseline;padding:clamp(12px,1.4vw,20px) 0;border-bottom:1px solid rgba(242,239,234,0.18);text-decoration:none;color:#F2EFEA;opacity:{{ p.o }};transition:opacity 0.4s">
-        <span style="font:400 10.5px var(--tw);color:#CFC9C0">{{ p.no }}</span>
-        <span style="display:flex;flex-direction:column;gap:10px"><span style="font:200 clamp(32px,5.4vw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-0.03em">{{ p.name }}</span><sc-if value="{{ p.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">{{ p.sub }}</span></sc-if></span>
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+      <a href="#enquire" onClick="{{ p.tap }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" style="display:grid;grid-template-columns:{{ wkCols }};gap:10px clamp(16px,2.4vw,40px);align-items:center;padding:clamp(18px,2.2vw,30px) 0;border-bottom:1px solid rgba(242,239,234,0.22);text-decoration:none;color:#F2EFEA;opacity:{{ p.o }};transition:opacity 0.4s;cursor:pointer">
+        <span style="font:400 11px var(--tw);color:#CFC9C0;align-self:start;padding-top:clamp(8px,1vw,18px)">{{ p.no }}</span>
+        <span style="display:flex;flex-direction:column;gap:12px;min-width:0">
+          <span style="display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px"><span style="font:200 clamp(36px,5.4vw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-0.03em">{{ p.name }}</span><span style="font:400 11px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">{{ p.count }}</span></span>
+          <span style="font:300 clamp(15px,1.15vw,18px)/1.55 'Hanken Grotesk',sans-serif;color:#E6E1DA;max-width:70ch;text-wrap:pretty">{{ p.sub }}</span>
+        </span>
+        <span style="justify-self:{{ wkBtnJust }};display:inline-flex;align-items:center;gap:{{ p.gap }};padding:14px 22px;min-height:48px;box-sizing:border-box;border-radius:100px;border:1px solid #F2EFEA;background:{{ p.btnBg }};color:{{ p.btnFg }};font:400 15px 'Hanken Grotesk',sans-serif;white-space:nowrap;transition:background 0.3s,color 0.3s,gap 0.3s">View projects <span>→</span></span>
       </a>
     </sc-for>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:clamp(20px,2.4vw,32px)"><span style="font:300 clamp(15px,1.2vw,18px)/1.5 'Hanken Grotesk',sans-serif;color:#CFC9C0">A selection of our work. Further projects across each sector are available on request.</span><a href="#enquire" style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:3px" style-hover="color:#FFFFFF">Request more projects →</a></div>
@@ -204,6 +208,14 @@
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:10px 18px;padding:clamp(8px,1.4vw,20px) 0;text-align:center"><span style="font:300 clamp(16px,1.3vw,19px)/1.5 'Hanken Grotesk',sans-serif;color:#CFC9C0">Selected work only — further projects are available to review on request.</span><a href="#enquire" onClick="{{ closeProj }}" style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:3px" style-hover="color:#FFFFFF">Request more projects →</a></div>
+        <button onClick="{{ nxGo }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;width:calc(100% + 2 * clamp(20px,3vw,44px));text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img src="{{ nxImg }}" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:0 20px;pointer-events:none">
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — {{ nxNo }}</span>
+            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">{{ nxName }}</span>
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;border-bottom:1px solid #FFFFFF;padding-bottom:4px">View →</span>
+          </span>
+        </button>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;border-top:1px solid rgba(242,239,234,0.18)">
         <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">Werrington, NSW</span>
         <a href="#enquire" onClick="{{ closeProj }}" style="display:inline-flex;align-items:center;gap:12px;font:300 clamp(18px,1.6vw,24px) 'Hanken Grotesk',sans-serif;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:4px" style-hover="color:#FFFFFF">Discuss a similar project →</a>
@@ -265,6 +277,14 @@
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:10px 18px;padding:clamp(8px,1.4vw,20px) 0;text-align:center"><span style="font:300 clamp(16px,1.3vw,19px)/1.5 'Hanken Grotesk',sans-serif;color:#CFC9C0">Selected work only — further projects are available to review on request.</span><a href="#enquire" onClick="{{ closeProj }}" style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:3px" style-hover="color:#FFFFFF">Request more projects →</a></div>
+        <button onClick="{{ nxGo }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;width:calc(100% + 2 * clamp(20px,3vw,44px));text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img src="{{ nxImg }}" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:0 20px;pointer-events:none">
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — {{ nxNo }}</span>
+            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">{{ nxName }}</span>
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;border-bottom:1px solid #FFFFFF;padding-bottom:4px">View →</span>
+          </span>
+        </button>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;border-top:1px solid rgba(242,239,234,0.18)">
         <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">Oatlands, NSW — in progress</span>
         <a href="#enquire" onClick="{{ closeProj }}" style="display:inline-flex;align-items:center;gap:12px;font:300 clamp(18px,1.6vw,24px) 'Hanken Grotesk',sans-serif;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:4px" style-hover="color:#FFFFFF">Discuss a similar project →</a>
@@ -307,10 +327,18 @@
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;border-top:1px solid rgba(242,239,234,0.18)">
         <span style="font:300 16px/1.5 'Hanken Grotesk',sans-serif;color:#CFC9C0">Further drawings and detail are available on enquiry.</span>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button onClick="{{ xNext }}" style="padding:14px 22px;border:1px solid rgba(255,255,255,0.35);border-radius:100px;background:none;font:400 14px 'Hanken Grotesk',sans-serif;color:#FFFFFF;cursor:pointer">Next project →</button>
+          
           <button onClick="{{ enqX }}" style="padding:14px 22px;border:none;border-radius:100px;background:#FFFFFF;font:400 14px 'Hanken Grotesk',sans-serif;color:#0C0C0B;cursor:pointer">Enquire</button>
         </div>
       </div>
+      <button onClick="{{ nxGo }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;width:calc(100% + 2 * clamp(20px,3vw,44px));text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img src="{{ nxImg }}" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:0 20px;pointer-events:none">
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — {{ nxNo }}</span>
+            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">{{ nxName }}</span>
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;border-bottom:1px solid #FFFFFF;padding-bottom:4px">View →</span>
+          </span>
+        </button>
     </div>
   </div>
 </sc-if>
@@ -451,11 +479,11 @@
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:10px 18px;padding:clamp(8px,1.4vw,20px) 0;text-align:center"><span style="font:300 clamp(16px,1.3vw,19px)/1.5 'Hanken Grotesk',sans-serif;color:#CFC9C0">Selected work only — further projects are available to review on request.</span><a href="#enquire" onClick="{{ closeProj }}" style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#F2EFEA;text-decoration:none;border-bottom:1px solid rgba(242,239,234,0.5);padding-bottom:3px" style-hover="color:#FFFFFF">Request more projects →</a></div>
-        <button onClick="{{ comGo2 }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
-          <img src="project4/b2.jpg" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 80%;pointer-events:none;opacity:0.55">
-          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;pointer-events:none">
-            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — 02</span>
-            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">Bottega Veneta</span>
+        <button onClick="{{ nxGo }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;width:calc(100% + 2 * clamp(20px,3vw,44px));text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img src="{{ nxImg }}" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:0 20px;pointer-events:none">
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — {{ nxNo }}</span>
+            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">{{ nxName }}</span>
             <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;border-bottom:1px solid #FFFFFF;padding-bottom:4px">View →</span>
           </span>
         </button>
@@ -482,11 +510,11 @@
           <img src="project4/b1.jpg" alt="Bottega Veneta Sydney — photo 3" loading="lazy" decoding="async" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none;transform:scale(1.04) translate(var(--tx,0px),var(--ty,0px));transition:transform 0.9s cubic-bezier(.2,.7,.2,1)">
         </button>
         </div>
-        <button onClick="{{ comGo1 }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
-          <img src="project3/hero2.jpg" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55">
-          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;pointer-events:none">
-            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — 01</span>
-            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">Runaway The Label</span>
+        <button onClick="{{ nxGo }}" onContextMenu="{{ noCtx }}" style="position:relative;margin:clamp(24px,4vw,56px) calc(-1 * clamp(20px,3vw,44px)) 0;height:clamp(280px,46vh,520px);padding:0;border:none;background:#1B1B1A;cursor:pointer;overflow:hidden;display:block;width:calc(100% + 2 * clamp(20px,3vw,44px));text-align:left;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img src="{{ nxImg }}" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0.55;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:0 20px;pointer-events:none">
+            <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#E6E1DA">Next project — {{ nxNo }}</span>
+            <span style="font:200 clamp(40px,6vw,104px)/0.95 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">{{ nxName }}</span>
             <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;border-bottom:1px solid #FFFFFF;padding-bottom:4px">View →</span>
           </span>
         </button>
@@ -513,7 +541,7 @@
 </sc-if>
 <div id="services" data-screen-label="Services" style="position:relative">
   <sc-for list="{{ stack }}" as="s" hint-placeholder-count="4">
-    <div data-stack="1" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#0C0C0B;margin-bottom:70vh">
+    <div data-stack="1" style="position:sticky;top:0;height:100svh;overflow:hidden;background:#0C0C0B;margin-bottom:70vh">
       <div style="position:absolute;inset:0;transform:scale(calc(1 - var(--q,0) * 0.08));transform-origin:50% 20%;opacity:calc(1 - var(--q,0) * 0.65);will-change:transform,opacity">
         <video src="{{ s.vid }}" data-rate="{{ s.rate }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.78),rgba(0,0,0,0.1) 60%);pointer-events:none"></div>
@@ -533,7 +561,7 @@
       </div>
     </div>
   </sc-for>
-  <div id="feasibility" data-stack="1" data-screen-label="Feasibility" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#0C0C0B">
+  <div id="feasibility" data-stack="1" data-screen-label="Feasibility" style="position:sticky;top:0;height:100svh;overflow:hidden;background:#0C0C0B">
     <div style="position:absolute;inset:0;transform:scale(calc(1 - var(--q,0) * 0.08));transform-origin:50% 20%;opacity:calc(1 - var(--q,0) * 0.65)">
       <video src="media/v13.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.78),rgba(0,0,0,0.1) 60%);pointer-events:none"></div>
@@ -549,7 +577,7 @@
   </div>
 </div>
 <section id="process" data-scrub="pin" data-screen-label="Process" style="height:240vh;position:relative">
-  <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;gap:clamp(32px,6vh,64px);padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px);isolation:isolate">
+  <div style="position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(32px,6vh,64px);padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px);isolation:isolate">
     <div style="position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none"><video src="media/v14.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(calc(1.1 - var(--p,0) * 0.1))"></video><div style="position:absolute;inset:0;background:rgba(12,12,11,0.8)"></div></div>
     <div style="display:flex;flex-direction:column;gap:22px"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;">Process</span><h2 style="margin:0;font:200 clamp(34px,4.4vw,72px)/1.02 'Hanken Grotesk',sans-serif;letter-spacing:-0.03em;max-width:16ch">From first conversation to completion.</h2></div>
     <div style="display:flex;flex-direction:column;gap:28px">
@@ -570,6 +598,11 @@
       <span style="font:400 10px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">Enquiries</span>
       <h2 data-reveal="1" style="margin:0;font:200 clamp(44px,5.6vw,96px)/0.94 'Hanken Grotesk',sans-serif;letter-spacing:-0.04em">Let’s begin<br>with your site.</h2>
       <p style="margin:0;font:300 clamp(15px,1.15vw,18px)/1.55 'Hanken Grotesk',sans-serif;color:#E6E1DA;max-width:34ch">Every enquiry is read personally. We’ll be in touch to arrange a first conversation.</p>
+      <div style="display:flex;flex-direction:column;margin-top:10px;max-width:480px;border-bottom:1px solid rgba(255,255,255,0.22)">
+        <a href="tel:+61291884818" style="display:grid;grid-template-columns:72px minmax(0,1fr);align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.22);text-decoration:none;color:#FFFFFF" style-hover="opacity:0.75"><span style="font:400 10.5px var(--tw);letter-spacing:0.12em;text-transform:uppercase;color:#CFC9C0">Call</span><span style="font:300 clamp(19px,1.6vw,24px)/1.25 'Hanken Grotesk',sans-serif;letter-spacing:-0.01em;color:#FFFFFF">(02) 9188 4818</span></a>
+        <a href="mailto:info@deboke.com.au" style="display:grid;grid-template-columns:72px minmax(0,1fr);align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.22);text-decoration:none;color:#FFFFFF" style-hover="opacity:0.75"><span style="font:400 10.5px var(--tw);letter-spacing:0.12em;text-transform:uppercase;color:#CFC9C0">Email</span><span style="font:300 clamp(19px,1.6vw,24px)/1.25 'Hanken Grotesk',sans-serif;letter-spacing:-0.01em;color:#FFFFFF;overflow-wrap:anywhere">info@deboke.com.au</span></a>
+        <a href="https://maps.google.com/?q=Suite+2,+17+William+Street,+Ryde+NSW+2112" target="_blank" rel="noopener" style="display:grid;grid-template-columns:72px minmax(0,1fr);align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.22);text-decoration:none;color:#FFFFFF" style-hover="opacity:0.75"><span style="font:400 10.5px var(--tw);letter-spacing:0.12em;text-transform:uppercase;color:#CFC9C0">Studio</span><span style="font:300 clamp(19px,1.6vw,24px)/1.25 'Hanken Grotesk',sans-serif;letter-spacing:-0.01em;color:#FFFFFF">Suite 2, 17 William Street, Ryde NSW 2112</span></a>
+      </div>
     </div>
     <div ref="{{ bookTopRef }}" data-reveal="1" style="background:rgba(12,12,11,0.5);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.16);padding:clamp(22px,2.6vw,38px);color:#FFFFFF;display:flex;flex-direction:column;gap:22px">
       <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
@@ -607,16 +640,16 @@
       </sc-if>
     </div>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px clamp(20px,3vw,44px);margin-top:clamp(28px,5vh,56px);padding-top:16px;border-top:1px solid rgba(255,255,255,0.18);font:400 10px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0">
-    <a href="tel:+61291884818" style="color:#FFFFFF;text-decoration:none" style-hover="color:#CFC9C0">(02) 9188 4818</a>
-    <a href="mailto:info@deboke.com.au" style="color:#FFFFFF;text-decoration:none" style-hover="color:#CFC9C0">info@deboke.com.au</a>
-    <span>17 William Street, Ryde NSW 2112</span>
-  </div>
-</section>
-<footer data-screen-label="Footer" style="padding-left:clamp(20px,3vw,44px);padding-right:clamp(20px,3vw,44px);padding-top:28px;padding-bottom:28px;border-top:1px solid rgba(242,239,234,0.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 28px">
-  <span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;">© 2026 Deboke Associates · ABN 40 650 297 500</span>
-  <div style="display:flex;gap:22px"><a href="https://www.instagram.com/deboke.associates" style="text-decoration:none"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;">Instagram</span></a><a href="https://www.linkedin.com/company/deboke-associates" style="text-decoration:none"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#8E887F;">LinkedIn</span></a></div>
+<footer data-screen-label="Footer" style="margin:clamp(28px,5vh,56px) calc(-1 * clamp(20px,3vw,44px)) calc(-1 * clamp(28px,4vh,44px));padding:16px clamp(20px,3vw,44px);border-top:1px solid rgba(255,255,255,0.22);display:grid;grid-template-columns:{{ footCols }};justify-items:{{ footJust }};align-items:center;gap:12px 24px">
+  <div style="display:flex;justify-content:flex-start;min-width:0;order:{{ footOrd }}"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0;">© 2026 Deboke Associates · ABN 40 650 297 500</span></div>
+  <a href="#cover" aria-label="deboke. — back to top" style="display:flex;align-items:center;gap:clamp(12px,1.4vw,18px);text-decoration:none" style-hover="opacity:0.8">
+    <img src="assets/deboke-mark.svg" alt="" style="height:clamp(26px,2.4vw,34px);width:auto;display:block">
+    <img src="assets/deboke-wordmark.svg" alt="deboke." style="height:clamp(18px,1.7vw,24px);width:auto;display:block">
+  </a>
+  <div style="display:flex;justify-content:flex-end;min-width:0;order:{{ footOrd }}"><div style="display:flex;gap:22px"><a href="https://www.instagram.com/deboke.associates" style="text-decoration:none"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0;">Instagram</span></a><a href="https://www.linkedin.com/company/deboke-associates" style="text-decoration:none"><span style="font:400 10.5px var(--tw);letter-spacing:0.1em;text-transform:uppercase;color:#CFC9C0;">LinkedIn</span></a></div></div>
 </footer>
+</section>
+
 
 
 </x-dc>
@@ -724,7 +757,7 @@ class Component extends DCLogic {
     const snapPts = () => { const vh = innerHeight, pts = [0]; document.querySelectorAll('section[data-screen-label]').forEach(el => { if (el.parentElement.closest('section') || el.closest('[role=dialog]')) return; const top = el.getBoundingClientRect().top + scrollY, h = el.offsetHeight; const cards = [...el.querySelectorAll('[data-stack]')].map(c => { let o = 0; for (let n = c; n && n !== el; n = n.offsetParent) o += n.offsetTop; return top + o; }); pts.push({ top, end: top + Math.max(0, h - vh), h, cards }); }); document.querySelectorAll('[data-stack]').forEach(c => { if (c.closest('[role=dialog]') || c.closest('section[data-screen-label]')) return; let o = 0; for (let n = c; n; n = n.offsetParent) o += n.offsetTop; pts.push({ top: o, end: o, h: vh, cards: [] }); }); return pts.slice(1); };
     const doSnap = () => {
       if (this._reduce || locked() || ss.on || (this.props.snap ?? true) === false) return;
-      const y = scrollY, vh = innerHeight, zone = vh * 0.32, mx = maxY(); let best = null, bd = Infinity;
+      const y = scrollY, vh = innerHeight, zone = vh * 0.32, mx = maxY(); if (y >= mx - 4) return; let best = mx, bd = Math.abs(mx - y) * 0.6;
       for (const p of snapPts()) {
         if (p.h > vh * 1.2 && !p.cards.length && y > p.top + zone && y < p.end - zone) return;
         for (const c of (p.h > vh * 1.2 ? [p.top, p.end, ...p.cards] : [p.top, p.top + p.h - vh > p.top + 40 ? p.top + p.h - vh : p.top])) { const d = Math.abs(c - y); if (d < bd) { bd = d; best = c; } }
@@ -794,7 +827,7 @@ class Component extends DCLogic {
     const msgs = [...this.state.msgs, { role: 'user', content: q, t: Date.now() }];
     this.setState({ msgs, chatDraft: '', chatBusy: true });
     clearInterval(this._dotT); this._dotT = setInterval(() => this.setState(s => ({ dots: s.dots % 3 + 1 })), 420);
-    const system = 'You are the friendly studio assistant on the website of deboke. (Deboke Associates), a small architecture, interiors and planning studio at 17 William Street, Ryde NSW 2112 — phone (02) 9188 4818, info@deboke.com.au — working across Sydney and NSW. Services: ' + SERV.map(x => x.name + ' (' + x.items.join(', ') + ')').join('; ') + '. Process: ' + STAGES.map(x => x[0] + ' — ' + x[1] + ' ' + x[2]).join('; ') + '. Every project is led personally by a principal. Fees are scoped in writing after a first chat — never quote prices. Feasibility reviews cover planning controls, yield options, DA vs CDC pathway and next steps. '
+    const system = 'You are the friendly studio assistant on the website of deboke. (Deboke Associates), a small architecture, interiors and planning studio at Suite 2, 17 William Street, Ryde NSW 2112 — phone (02) 9188 4818, info@deboke.com.au — working across Sydney and NSW. Services: ' + SERV.map(x => x.name + ' (' + x.items.join(', ') + ')').join('; ') + '. Process: ' + STAGES.map(x => x[0] + ' — ' + x[1] + ' ' + x[2]).join('; ') + '. Every project is led personally by a principal. Fees are scoped in writing after a first chat — never quote prices. Feasibility reviews cover planning controls, yield options, DA vs CDC pathway and next steps. '
       + 'Write as a courteous, professional member of an architecture practice: polished, measured and concise, in the tone of a considered client email. Use Australian spelling and complete sentences. No slang, no casual phrases or filler (avoid "good question", "happy to help", "no worries", "great", exclamation marks), no markdown, no lists, no emoji. Keep each reply to 1–3 sentences, with a blank line between distinct thoughts. Be warmly polite and courteous throughout, as a gracious receptionist at a well-regarded practice would be. The conversation opens by asking how the visitor is: respond graciously to their answer (e.g. "I\u2019m pleased to hear that" or, if they are not well, a brief kind acknowledgement), then politely ask for their name (e.g. "May I ask who I have the pleasure of speaking with?") before anything else. Once they share it, thank them, use their first name naturally in most replies from then on (not every sentence), and politely ask what brings them to deboke. today. If they decline to give a name, accept it graciously and continue. If their first message is already a question, answer it courteously first, then ask for their name. Use courteous phrasing such as "may I ask", "would you mind sharing", "thank you for letting me know", "it would be a pleasure". Thank the visitor when they share details. If they ask how you are, reply briefly and courteously and return the question to their project. When the conversation is ending, thank them for their time and wish them a pleasant day. Hold a genuine two-way conversation: acknowledge what the visitor has just said in your own words, remember and refer back to details they shared earlier (their name, project type, suburb, stage, timing), and move the conversation forward. End almost every reply with one natural, relevant question to learn more about them — for example what type of project it is, where the site is, whether they own it yet, their timing, or how they heard of the studio — asking only one thing at a time and never repeating a question already answered. If the visitor gives their name, address them by it. Once you know the project type and location, suggest booking a consultation. Once the visitor mentions a specific site or property, politely request two documents so the team can review it ahead of a consultation: the Section 10.7(2) and (5) Planning Certificate (issued by the local council) and the Contract of Sale (if they are purchasing or have recently purchased). Explain briefly that these help the team understand the site before meeting, and that they can be emailed to info@deboke.com.au or brought to the consultation. If they do not have them yet, simply say courteously that the certificate is obtained through their local council, that a council fee applies, and that the documents can be provided when available. Never state or guess fees, costs, processing times or requirements. Ask for these once only; do not interpret or comment on their contents. Keep the conversation focused on the visitor\u2019s project and deboke.\u2019s services: keep small talk brief and courteous, and if the visitor raises unrelated topics, politely steer back to how the studio can help. FACTUAL ACCURACY: only state facts explicitly given in these instructions. Never state or guess any fees, costs, prices, timeframes, council processes, legislation, eligibility or requirements beyond what is written here. If you are unsure of anything, say the team will confirm it during the consultation or by phone. Never offer multiple-choice or suggested replies — let the visitor answer in their own words. STRICT RULE: never give advice of any kind — no planning, approval, zoning, DA/CDC, council, design, building, cost, legal or feasibility advice, opinions or predictions, even general or hypothetical. You may only describe what deboke. offers, how the process works, and how to get in touch. If asked anything that would need advice (e.g. what can I build, do I need a DA or CDC, will council approve, how much will it cost), politely explain that this is assessed by the team on a site-by-site basis and cannot be advised on here, then invite them to call or book a consultation. Never guess. Be honest that you are an AI assistant if asked, and that someone from the studio can follow up personally. When they seem ready, suggest sending an enquiry through the form in the Enquire section at the bottom of the page, or calling the studio.';
     let out;
     try { out = await window.claude.complete({ system, max_tokens: 400, messages: msgs.filter(m => !m.cont).slice(0).map(m => ({ role: m.role, content: m.content })).filter((m, i, a) => !(i === 0 && m.role === 'assistant')) }); }
@@ -840,7 +873,7 @@ class Component extends DCLogic {
         const name = this.bNameRef.current?.value.trim(), email = this.bEmailRef.current?.value.trim();
         if (!name) return this.setState({ bookErr: 'Add your name.' });
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ bookErr: 'Add a valid email for the invitation.' });
-        this.setState({ booked: { name: name.split(' ')[0], email, start: start().getTime(), when: dFmt(days[st.day]) + ' · ' + SL[st.slot], where: st.meet === 0 ? '17 William Street, Ryde NSW' : st.meet === 1 ? 'Video link in your invitation' : 'We will call you' }, bookErr: '' });
+        this.setState({ booked: { name: name.split(' ')[0], email, start: start().getTime(), when: dFmt(days[st.day]) + ' · ' + SL[st.slot], where: st.meet === 0 ? 'Suite 2, 17 William Street, Ryde NSW' : st.meet === 1 ? 'Video link in your invitation' : 'We will call you' }, bookErr: '' });
       },
       bookedName: st.booked?.name, bookedWhen: st.booked?.when, bookedWhere: st.booked?.where, bookedEmail: st.booked?.email,
       resetBook: () => this.setState({ booked: null, slot: -1 }),
@@ -899,7 +932,8 @@ class Component extends DCLogic {
       stages: STAGES.map(([name, desc, dur], i) => ({ name, desc, dur, no: '0' + (i + 1) })),
       bentoCols: small ? '1fr' : 'minmax(0,1.4fr) minmax(0,1fr)', bentoRow: small ? '62vw' : 'clamp(220px,24vw,360px)', leafR: small ? '0' : '50% 4px 4px 50% / 50% 4px 4px 50%',
       idxCols: small ? '32px minmax(0,1fr) 52px' : '56px minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 64px', idxHide: small ? 'none' : 'block',
-      projects: PROJ.map(([name, loc, type, year], i) => ({ name, loc, type, year, no: '0' + (i + 1), hasSub: name === 'SDA' || name === 'Residential' || name === 'Commercial' || name === 'Interiors', sub: name === 'Interiors' ? XP.filter(p => p.cat === 'int').map(p => p.name).join(' · ') : name === 'Residential' ? ['Oatlands', 'Werrington SDA'].concat(XP.filter(p => p.cat === 'res').map(p => p.name)).join(' · ') : name === 'Commercial' ? ['Runaway The Label', 'Bottega Veneta'].concat(XP.filter(p => p.cat === 'com').map(p => p.name)).join(' · ') : 'Project 01 — Oatlands · Under construction', o: st.hover >= 0 && st.hover !== i ? 0.3 : 1, enter: () => { if (fine) this.setState({ hover: i }); }, tap: e => { if (!fine && st.hover !== i) { e.preventDefault(); this.setState({ hover: i }); return; } if (name === 'SDA' || name === 'Residential' || name === 'Commercial' || name === 'Interiors') { e.preventDefault(); this.openProj(name === 'Commercial' ? 'com' : name === 'Interiors' ? 'int' : 'resx'); } }, leave: () => this.setState({ hover: -1 }) })),
+      wkCols: small ? '24px minmax(0,1fr)' : '56px minmax(0,1fr) auto', wkBtnJust: small ? 'start' : 'end',
+      projects: PROJ.map(([name, loc, type, year], i) => ({ name, loc, type, year, no: '0' + (i + 1), count: (n => n + (n === 1 ? ' project' : ' projects'))(name === 'Interiors' ? XP.filter(p => p.cat === 'int').length : name === 'Commercial' ? 2 + XP.filter(p => p.cat === 'com').length : 2 + XP.filter(p => p.cat === 'res').length), btnBg: st.hover === i ? '#F2EFEA' : 'transparent', btnFg: st.hover === i ? '#0C0C0B' : '#F2EFEA', gap: st.hover === i ? '18px' : '10px', hasSub: name === 'SDA' || name === 'Residential' || name === 'Commercial' || name === 'Interiors', sub: name === 'Interiors' ? XP.filter(p => p.cat === 'int').map(p => p.name).join(', ') : name === 'Residential' ? ['Oatlands', 'Werrington SDA'].concat(XP.filter(p => p.cat === 'res').map(p => p.name)).join(', ') : name === 'Commercial' ? ['Runaway The Label', 'Bottega Veneta'].concat(XP.filter(p => p.cat === 'com').map(p => p.name)).join(', ') : 'Project 01 — Oatlands · Under construction', o: st.hover >= 0 && st.hover !== i ? 0.3 : 1, enter: () => { if (fine) this.setState({ hover: i }); }, tap: e => { if (name === 'SDA' || name === 'Residential' || name === 'Commercial' || name === 'Interiors') { e.preventDefault(); this.openProj(name === 'Commercial' ? 'com' : name === 'Interiors' ? 'int' : 'resx'); } }, leave: () => this.setState({ hover: -1 }) })),
       viewHint: fine ? 'Hover to view' : 'Tap to view',
       noCtx: e => e.preventDefault(),
       tilt: e => { const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty('--tx', (((e.clientX - r.left) / r.width - 0.5) * -14).toFixed(1) + 'px'); el.style.setProperty('--ty', (((e.clientY - r.top) / r.height - 0.5) * -14).toFixed(1) + 'px'); el.style.setProperty('--cap', 1); },
@@ -931,8 +965,19 @@ class Component extends DCLogic {
         const it = (k) => ({ n: k + 1, src: XS(X, k), ar: String(X.ars[k]), flex: w < 560 ? '0 0 auto' : X.ars[k] + ' 1 0%', open: () => this.setState({ lb: k + 1, lbSet: X.id }) });
         const rows = []; for (let k = 1; k < X.files.length; k += 2) rows.push({ items: [it(k)].concat(k + 1 < X.files.length ? [it(k + 1)] : []) });
         const im = mk('int'); return { resMore: rm, comMore: cm, intMore: im, intCount: im.length + (im.length === 1 ? ' project' : ' projects'), intOpen: st.proj === 'int', goInt: () => this.openProj('int'), resCount: (2 + rm.length) + ' projects', comCount: (2 + cm.length) + ' projects',
+          footCols: w < 640 ? '1fr' : 'minmax(0,1fr) auto minmax(0,1fr)', footJust: w < 640 ? 'center' : 'stretch', footOrd: w < 640 ? 2 : 0,
           railW: mob ? '100%' : 'calc(50% - 1px)', railH: mob ? '62vh' : 'max(58vh, 360px)', railOvX: 'hidden', railOvY: 'auto', railSnap: 'y proximity',
           railWheel: () => {},
+          ...(() => {
+            const goCom = tb => { if (st.proj === 'com') { const r = document.querySelector('[data-proj-root="com"]'); if (r) r.scrollTo({ top: 0 }); this.setState({ comTab: tb }); } else { this.openProj('com'); setTimeout(() => this.setState({ comTab: tb }), 40); } };
+            const seq = { res: [{ name: 'Oatlands', img: 'project2/q' + (SEL.p2 ? SEL.p2[2] : 3) + '.jpg', go: () => this.openProj('res') }, { name: 'Werrington SDA', img: 'project1/p' + (SEL.p1 ? SEL.p1[74] : 75) + '.jpg', go: () => this.openProj('sda') }].concat(rm.map(p => ({ name: p.name, img: p.img, go: p.open }))),
+              com: [{ name: 'Runaway The Label', img: 'project3/hero2.jpg', go: () => goCom(1) }, { name: 'Bottega Veneta', img: 'project4/b2.jpg', go: () => goCom(2) }].concat(cm.map(p => ({ name: p.name, img: p.img, go: p.open }))),
+              int: im.map(p => ({ name: p.name, img: p.img, go: p.open })) };
+            const pr = st.proj; const cat = pr === 'res' || pr === 'sda' ? 'res' : pr === 'com' ? 'com' : pr === 'x' ? X.cat : null;
+            const cur = pr === 'res' ? 'Oatlands' : pr === 'sda' ? 'Werrington SDA' : pr === 'com' ? (st.comTab === 2 ? 'Bottega Veneta' : 'Runaway The Label') : X.name;
+            const L = (cat && seq[cat]) || seq.res; const ix = Math.max(0, L.findIndex(q => q.name === cur)); const nx = L[(ix + 1) % L.length] || L[0];
+            return { nxName: nx.name, nxImg: nx.img, nxNo: String(((ix + 1) % L.length) + 1).padStart(2, '0'), nxGo: () => nx.go() };
+          })(),
           xOpen: st.proj === 'x', xName: X.name, xNo: X.no, xSub: X.sub, xCat: X.cat === 'com' ? 'Commercial' : X.cat === 'int' ? 'Interiors' : 'Residential', xCount: X.files.length + (X.files.length === 1 ? ' image' : ' images'),
           xHero: it(0), xRows: rows, xBack: () => this.openProj(X.cat === 'com' ? 'com' : X.cat === 'int' ? 'int' : 'resx'),
           xNext: () => { const same = XP.filter(p => p.cat === X.cat); this.openX(same[(same.indexOf(X) + 1) % same.length].id); },
